@@ -1,35 +1,38 @@
 {
-   "version": 2,
-   "builds": [
-       {
-           "src": "src/index.ts",
-           "use": "@vercel/node"
-       }
-   ],
-   "routes": [
-       {
-           "src": "/(.*)",
-           "dest": "src/index.ts"
-       }
-   ],
-   "headers": [
-       {
-           "source": "/(.*)",
-           "headers": [
-               {
-                   "key": "Access-Control-Allow-Origin",
-                   "value": "*"
-               }
-           ]
-       },
-       {
-           "source": "/vercel_app_domain_name/(.*)",
-           "headers": [
-               {
-                   "key": "Access-Control-Allow-Origin",
-                   "value": "*"
-               }
-           ]
-       }
-   ]
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/index.ts",
+            "use": "@vercel/node",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/index.ts"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
+        },
+        {
+            "source": "/vercel_app_domain_name/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
+        }
+    ]
 }
